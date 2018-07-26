@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.versions['compileSdkVersion']
+    buildToolsVersion rootProject.ext.versions['buildToolsVersion']
+    defaultConfig {
+        minSdkVersion rootProject.ext.versions['minSdkVersion']
+        targetSdkVersion rootProject.ext.versions['targetSdkVersion']
+        versionCode rootProject.ext.versions['versionCode']
+        versionName rootProject.ext.versions['versionName']
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //兼容性支持库
+    implementation rootProject.ext.dependencies['supportv4']
+    implementation rootProject.ext.dependencies['appcompatv7']
+    //新的layout
+    implementation rootProject.ext.dependencies['constraintlayout']
+    //butterknife
+    implementation rootProject.ext.dependencies['butterknife']
+    //okhttp
+    implementation rootProject.ext.dependencies['okhttp3']
+    //retrofit
+    implementation rootProject.ext.dependencies['retrofit2']
+    //retrofit对rxjava的适配
+    implementation rootProject.ext.dependencies['retrofit2adapterrxjava2']
+    //retrofit对gson的支持
+    implementation rootProject.ext.dependencies['retrofit2convertergson']
+    //retrofit对请求字符串支持
+    implementation rootProject.ext.dependencies['retrofit2converterscalars']
+    //rxjava
+    implementation rootProject.ext.dependencies['rxjava2']
+    //rxandroid
+    implementation rootProject.ext.dependencies['rxandroid']
+    //butterknife编译器
+    annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
+}

@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    //使用databinding
+    dataBinding {
+        enabled true
+    }
+    compileSdkVersion rootProject.ext.versions['compileSdkVersion']
+    buildToolsVersion rootProject.ext.versions['buildToolsVersion']
+    defaultConfig {
+        applicationId "com.mk.electronic.label"
+        minSdkVersion rootProject.ext.versions['minSdkVersion']
+        targetSdkVersion rootProject.ext.versions['targetSdkVersion']
+        versionCode rootProject.ext.versions['versionCode']
+        versionName rootProject.ext.versions['versionName']
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    //架构依赖
+    implementation project(':framework')
+    //libs目录包依赖
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //兼容性支持库
+    implementation rootProject.ext.dependencies['supportv4']
+    implementation rootProject.ext.dependencies['appcompatv7']
+    //新的layout
+    implementation rootProject.ext.dependencies['constraintlayout']
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //测试
+    testImplementation rootProject.ext.dependencies['junit']
+    androidTestImplementation rootProject.ext.dependencies['testrunner']
+    androidTestImplementation rootProject.ext.dependencies['testespresso']
+    //butterknife编译器
+    annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
+}
