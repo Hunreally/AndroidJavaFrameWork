@@ -29,16 +29,7 @@ dependencies {
     implementation project(':framework')
     //libs目录包依赖
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //兼容性支持库
-    implementation rootProject.ext.dependencies['supportv4']
-    implementation rootProject.ext.dependencies['appcompatv7']
-    //新的layout
-    implementation rootProject.ext.dependencies['constraintlayout']
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    //测试
-    testImplementation rootProject.ext.dependencies['junit']
-    androidTestImplementation rootProject.ext.dependencies['testrunner']
-    androidTestImplementation rootProject.ext.dependencies['testespresso']
-    //butterknife编译器
-    annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
+//    //butterknife编译器(只在编译的时候使用改库，不打包到apk)
+//    annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
 }
