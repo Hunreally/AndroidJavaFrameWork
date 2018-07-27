@@ -1,4 +1,4 @@
-package com.framework.network;
+package com.framework.network.okhttp3;
 
 import com.framework.BuildConfig;
 
@@ -18,7 +18,7 @@ public class OkHttp3Creater {
     /*
      * 创建okhttp的构建者以及设置okhttp参数
      */
-    public static OkHttpClient.Builder createOkHttp3(){
+    public static OkHttpClient.Builder createNewOkHttp3(){
         OkHttpClient.Builder okHttpClientBuilder=null;
         okHttpClientBuilder=new OkHttpClient().newBuilder();
         if (BuildConfig.DEBUG){
@@ -36,10 +36,5 @@ public class OkHttp3Creater {
 //        okHttpClientBuilder.retryOnConnectionFailure(true);
         return okHttpClientBuilder;
     }
-
-
-
-
-
 
 }
