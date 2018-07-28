@@ -32,4 +32,5 @@ dependencies {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //butterknife编译器(只在编译的时候使用改库，不打包到apk)该配置应该配置在Module中jar中是没有用的
     annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
+    annotationProcessor rootProject.ext.dependencies['glidecompiler']
 }

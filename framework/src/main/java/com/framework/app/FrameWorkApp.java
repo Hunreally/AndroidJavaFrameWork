@@ -11,7 +11,7 @@ import com.framework.utils.FrameWorkSharePreferenceUtil;
  */
 public class FrameWorkApp extends Application{
 
-    public static FrameWorkApp instance=null;
+    protected static FrameWorkApp instance=null;
 
     public static Application getApp(){
         return instance;
