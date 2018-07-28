@@ -7,15 +7,13 @@ import com.framework.app.FrameWorkApp;
  */
 public class MainAppication extends FrameWorkApp{
 
-    private static MainAppication mainAppication=null;
-
-    public static MainAppication getApp(){
-        return mainAppication;
+    public static MainAppication getAppAppication(){
+        return (MainAppication) instance;
     }
 
     @Override
     public void onCreate() {
-        mainAppication=this;
+        instance=this;
         super.onCreate();
     }
 }

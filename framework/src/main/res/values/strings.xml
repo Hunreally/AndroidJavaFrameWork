@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FrameWork</string>
+    <string name="exit_txt">再按一次退出应用</string>
 </resources>

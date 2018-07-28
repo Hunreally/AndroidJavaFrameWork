@@ -5,10 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.framework.R;
+import com.framework.activity.utils.ActivityManager;
 import com.framework.mvp.m.BaseModel;
 import com.framework.mvp.p.BasePresenter;
 import com.framework.mvp.v.BaseView;
 import com.framework.utils.FrameWorkLogUtil;
+import com.framework.utils.FrameWorkToastUtil;
 import com.jakewharton.rxbinding2.view.RxView;
 
 import java.lang.reflect.Constructor;
@@ -33,6 +36,7 @@ public abstract class FrameWorkBaseActivity
     public BPresenter mPresenter;
     public CompositeDisposable mCompositeDisposable;
     private static final long nextClickTime=3;
+    private long mExitTime,ExitD=2000;
 
     protected abstract int getLayoutId();
     protected abstract void initOnCreateBeforeSetContentView();
@@ -57,6 +61,8 @@ public abstract class FrameWorkBaseActivity
             throw new RuntimeException("not a layoutId by getLayoutId method return," +
                     "layoutId="+layoutId);
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        ActivityManager.getAppManager().addActivity(this);
         ///////////////////////////////////////////////////////////////////////////////////////////
         initPresenter();
         initData();
@@ -115,6 +121,7 @@ public abstract class FrameWorkBaseActivity
 
     @Override
     protected void onDestroy() {
+        ActivityManager.getAppManager().finishActivity(this);
         if (mPresenter!=null){
             mPresenter.dettachView();
         }
@@ -124,4 +131,22 @@ public abstract class FrameWorkBaseActivity
         super.onDestroy();
     }
 
+    public void toast(String message){
+        FrameWorkToastUtil.showLongToast(this,message);
+    }
+    public void loge(String message){
+        FrameWorkLogUtil.LogE("loge=="+this.getClass().getSimpleName(),message);
+    }
+
+    /**
+     * 再按一次退出应用
+     */
+    public void ExitOneMoreClick(){
+        if ((System.currentTimeMillis() - mExitTime) > ExitD) {
+            toast(getResources().getString(R.string.exit_txt));
+            mExitTime = System.currentTimeMillis();
+        }else {
+            ActivityManager.getAppManager().AppExit(this);
+        }
+    }
 }

@@ -20,8 +20,8 @@ public class MainPresenter extends BasePresenter<MainView,MainModel> {
         super(view, activity);
     }
 
-    public String getModelData(){
-        return mModel.loadData(String.class);
+    public void getModelData(){
+        getView().loadDataFail(mModel.loadData(String.class));
     }
 
 }
