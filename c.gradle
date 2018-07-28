@@ -31,5 +31,7 @@ ext {
             "rxbinding2appcompatv7":"com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1",
             "rxlifecycle2components":"com.trello.rxlifecycle2:rxlifecycle-components:2.2.1",
             "rxlifecycle2androidlifecycle":"com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.1",
+            "multidex":"com.android.support:multidex:1.0.1",
+
     ]
 }

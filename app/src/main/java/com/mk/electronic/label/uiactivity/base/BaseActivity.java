@@ -1,5 +1,7 @@
 package com.mk.electronic.label.uiactivity.base;
 
+import android.view.View;
+
 import com.framework.activity.FrameWorkBaseActivity;
 import com.framework.mvp.m.BaseModel;
 import com.framework.mvp.p.BasePresenter;
@@ -16,5 +18,15 @@ public abstract class BaseActivity
 
     @Override
     protected void initOnCreateBeforeSetContentView() {
+    }
+
+    @Override
+    protected void onRxBindingViewClick(View view) {
+
+    }
+
+    @Override
+    protected void onRxBindingViewLongClick(View view) {
+
     }
 }

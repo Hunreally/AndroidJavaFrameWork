@@ -22,4 +22,10 @@ public class FrameWorkLogUtil {
             Log.e(TAG,message);
         }
     }
+
+    public static void LogE(String tag,String message){
+        if (BuildConfig.DEBUG){
+            Log.e(tag,message);
+        }
+    }
 }
