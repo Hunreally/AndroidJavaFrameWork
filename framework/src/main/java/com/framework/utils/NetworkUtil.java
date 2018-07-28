@@ -1,4 +1,5 @@
 package com.framework.utils;
+
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -16,13 +17,17 @@ import java.util.Enumeration;
  * Created by Hunreally on 2018/7/27 0027.
  */
 public class NetworkUtil {
-
     public static int NET_CNNT_BAIDU_OK = 1;
     public static int NET_CNNT_BAIDU_TIMEOUT = 2;
     public static int NET_NOT_PREPARE = 3;
     public static int NET_ERROR = 4;
     private static int TIMEOUT = 3000;
 
+    /**
+     * 网络是否可用
+     * @param context
+     * @return
+     */
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager manager = (ConnectivityManager) context.getApplicationContext().getSystemService(
                 Context.CONNECTIVITY_SERVICE);
@@ -34,6 +39,10 @@ public class NetworkUtil {
         return true;
     }
 
+    /**
+     * 获取网络ip
+     * @return
+     */
     public static String getLocalIpAddress() {
         String ret = "";
         try {

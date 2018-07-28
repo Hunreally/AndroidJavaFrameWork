@@ -30,6 +30,6 @@ dependencies {
     //libs目录包依赖
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     ////////////////////////////////////////////////////////////////////////////////////////////////
-//    //butterknife编译器(只在编译的时候使用改库，不打包到apk)
-//    annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
+    //butterknife编译器(只在编译的时候使用改库，不打包到apk)该配置应该配置在Module中jar中是没有用的
+    annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
 }

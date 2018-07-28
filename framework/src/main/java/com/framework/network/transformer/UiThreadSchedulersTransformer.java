@@ -13,7 +13,7 @@ public class UiThreadSchedulersTransformer implements ObservableTransformer {
 
     @Override
     public ObservableSource apply(Observable upstream) {
-        return ((Observable) upstream).subscribeOn(Schedulers.io())
+        return upstream.subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

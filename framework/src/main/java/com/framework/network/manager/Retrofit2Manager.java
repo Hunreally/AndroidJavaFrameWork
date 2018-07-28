@@ -1,4 +1,4 @@
-package com.mk.electronic.label.net.base;
+package com.framework.network.manager;
 
 import com.framework.network.okhttp3.OkHttp3Creater;
 

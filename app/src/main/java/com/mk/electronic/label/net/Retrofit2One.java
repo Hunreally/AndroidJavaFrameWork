@@ -1,16 +1,16 @@
 package com.mk.electronic.label.net;
 
+import com.framework.network.manager.Retrofit2Manager;
+import com.framework.network.result.ResponseResult;
 import com.framework.network.transformer.ErrorTransformer;
 import com.framework.network.transformer.UiThreadSchedulersTransformer;
-import com.framework.network.result.ResponseResult;
-import com.mk.electronic.label.net.base.Retrofit2Manager;
 
 import io.reactivex.Observable;
 
 /**
  * Created by Hunreally on 2018/7/27 0027.
  */
-public class Retrofit2One extends Retrofit2Manager{
+public class Retrofit2One extends Retrofit2Manager {
 
     private String BASE_URL="";
 
@@ -34,8 +34,4 @@ public class Retrofit2One extends Retrofit2Manager{
                 .compose(new UiThreadSchedulersTransformer())
                 .compose(new ErrorTransformer<ResponseResult<String>>());
     }
-
-
-
-
 }

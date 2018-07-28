@@ -14,6 +14,6 @@ public class ErrorTransformer<T> implements ObservableTransformer {
 
     @Override
     public ObservableSource apply(Observable upstream) {
-        return (Observable<T>) upstream.map(new ResponseFunction()).onErrorResumeNext(new ErrorFunction<T>());
+        return  upstream.map(new ResponseFunction<T>()).onErrorResumeNext(new ErrorFunction<T>());
     }
 }
