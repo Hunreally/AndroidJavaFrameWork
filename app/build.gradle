@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     //使用databinding
     dataBinding {
@@ -33,4 +33,12 @@ dependencies {
     //butterknife编译器(只在编译的时候使用改库，不打包到apk)该配置应该配置在Module中jar中是没有用的
     annotationProcessor rootProject.ext.dependencies['butterknifecompiler']
     annotationProcessor rootProject.ext.dependencies['glidecompiler']
+}
+
+greendao {
+    schemaVersion 1//数据库版本号
+    daoPackage 'com.mk.electronic.label.database'//设置DaoMaster、DaoSession、Dao包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+    //targetGenDirTest：设置生成单元测试目录
+    //generateTests：设置自动生成单元测试用例
 }
